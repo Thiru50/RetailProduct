@@ -1,6 +1,16 @@
 .main-div mat-card{
     padding: 0px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 .login-form{
     padding: 20px;
+}
+.mat-toolbar.mat-primary{
+    background-color:#3ca9d4;
+}
+.main-div{
+    background-image: url('/assets/images/loginback.jpg');
+    background-repeat: no-repeat;
+     background-size: cover;
 }
