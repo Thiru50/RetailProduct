@@ -17,8 +17,13 @@ import { ProductsComponent } from './products/products.component';
 import { ProceedToBuyComponent } from './proceed-to-buy/proceed-to-buy.component';
 import { InvalidCredentialsComponent } from './invalid-credentials/invalid-credentials.component';
 import { HomeComponent } from './home/home.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { AuthGuardService } from './auth-guard.service';
+import { AuthServiceService } from './auth-service.service';
 
-
+export function tokenGetter(){
+  return localStorage.getItem('token');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,9 +45,16 @@ import { HomeComponent } from './home/home.component';
     MatToolbarModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    JwtModule.forRoot({
+      config:{
+        tokenGetter:tokenGetter,
+        allowedDomains:["localhost:37571"],
+        disallowedRoutes:[]
+      }
+    })
   ],
-  providers: [],
+  providers: [AuthGuardService,AuthServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

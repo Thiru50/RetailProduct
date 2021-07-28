@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthServiceService } from '../auth-service.service';
 
@@ -22,11 +22,16 @@ export class LoginComponent implements OnInit {
     })
   }
   loginProcess(){
-    if(this.formGroup.valid){
-      this.authService.login(this.formGroup.value).subscribe(data=>{
-       this.router.navigate(['products']);
-      },error=>{this.router.navigate(['InvalidCredentials']);})
-     }
+    this.authService.login(this.formGroup.value).subscribe(
+      (res:any)=>{
+        localStorage.setItem('token',res.token);
+        this.router.navigateByUrl('products');
+      },
+      err=>{
+        this.router.navigateByUrl('InvalidCredentials');
+        
+      }
+    );
   }
 
 }

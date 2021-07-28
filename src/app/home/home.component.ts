@@ -18,4 +18,10 @@ export class HomeComponent implements OnInit {
       }
       
   }
+  loginProcess2(){
+    {
+        this.router.navigate(['products']);
+       }
+       
+   }
 }
