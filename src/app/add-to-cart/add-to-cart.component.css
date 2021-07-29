@@ -1,0 +1,23 @@
+.container-fluid{
+    background-color:rgba(209,228,243,255);
+}
+h1
+{
+ font-size: 40px;
+ font-weight: bolder; 
+ color: palevioletred;
+ text-align: center;
+}
+.form-control
+{
+ width: 300px;
+
+}
+label{
+ font-size: 20px;
+ color: palevioletred;;
+}
+img{
+ width: 837px; 
+ height: 575px;
+}

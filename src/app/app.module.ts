@@ -13,13 +13,19 @@ import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {HttpClientModule} from '@angular/common/http'
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import { ProductsComponent } from './products/products.component';
-import { ProceedToBuyComponent } from './proceed-to-buy/proceed-to-buy.component';
 import { InvalidCredentialsComponent } from './invalid-credentials/invalid-credentials.component';
 import { HomeComponent } from './home/home.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthGuardService } from './auth-guard.service';
 import { AuthServiceService } from './auth-service.service';
+import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
+import { AddedSuccessfullyComponent } from './added-successfully/added-successfully.component';
+import { ProductComponent } from './product/product.component';
+
+import { HeaderComponent } from './header/header.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { AddRatingComponent } from './add-rating/add-rating.component';
+import { RatingAddedSuccessfullyComponent } from './rating-added-successfully/rating-added-successfully.component';
 
 export function tokenGetter(){
   return localStorage.getItem('token');
@@ -28,10 +34,16 @@ export function tokenGetter(){
   declarations: [
     AppComponent,
     LoginComponent,
-    ProductsComponent,
-    ProceedToBuyComponent,
     InvalidCredentialsComponent,
-    HomeComponent
+    HomeComponent,
+    AddToCartComponent,
+    AddedSuccessfullyComponent,
+    ProductComponent,
+    
+    HeaderComponent,
+    ProductDetailsComponent,
+    AddRatingComponent,
+    RatingAddedSuccessfullyComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +64,8 @@ export function tokenGetter(){
         allowedDomains:["localhost:37571"],
         disallowedRoutes:[]
       }
-    })
+    }),
+
   ],
   providers: [AuthGuardService,AuthServiceService],
   bootstrap: [AppComponent]

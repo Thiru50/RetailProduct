@@ -1,0 +1,43 @@
+<div class="container-fluid mb-5" > 
+    <div class="row">
+    <div class="col-4">
+        <br>
+        <h1>  Add To Cart</h1>
+        <br>
+        <form #userForm="ngForm">
+            <div class="form-group ">
+                <label class="control-label ">Product Id</label>
+                <input class="form-control" readonly />
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="control-label">Customer Id</label>
+                <input class="form-control" readonly  />
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="control-label">ZipCode</label>
+                <input  type="test" #zipcode="ngModel" required pattern="[0-9]{6}" [class.is-invalid]="zipcode.invalid && zipcode.touched" class="form-control"  name="ZipCode" ngModel/>
+                <div *ngIf="zipcode.errors && (zipcode.invalid || zipcode.touched)">
+                    <small class="text-danger" *ngIf="zipcode.errors.required &&zipcode.touched">ZipCode is Required</small>
+                    <small class="text-danger" *ngIf="zipcode.errors.pattern">ZipCode must be 6 Digits</small>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label class="control-label">Delivery Date</label>
+                <input type="date" class="form-control"  style="width: 300px;" name="DeliveryDate" ngModel/>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Add to Cart" class="btn btn-info" routerLink="/addedsuccessfully"/>
+            </div>
+            
+        </form>
+        </div>
+        <div class="col-8">
+            <img src='.\assets\images\AddToCart.png' alt='Home Content' />
+        </div>  
+        </div>
+       
+</div>

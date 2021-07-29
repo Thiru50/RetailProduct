@@ -1,0 +1,8 @@
+.changed{
+    color: gold;
+}
+.inputUnderline{
+    outline: none;
+    border: none;
+    border-bottom: 2px solid blue;
+}
